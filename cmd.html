@@ -1,0 +1,154 @@
+<html>
+
+<head>
+    <title>
+        Web Club :: NITK Surathkal
+    </title>
+    <meta name="author" content="Yuvraj Singh Bawa">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Yuvraj,Singh,Bawa,NIT,NITK,Surathkal,Karnataka,Web,Engineer,Incident,Web,Club,web club,enthusiasts,open,source,Github" name="keywords" />
+    <link rel="icon" href="images/logo-icon.png" type="image/png">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <style>
+    .panel-default>.panel-heading {
+        background: #333;
+        color: white;
+        border: 0;
+    }
+    .panel-body{
+        background: #2c3e50;
+        color:white;
+        padding:0;
+        padding-left:20px;
+    }
+    .panel-body ul.news {
+        padding: 0;
+        margin-bottom: 0;
+    }
+    
+    .panel-body ul.news>li {
+        list-style: none;
+        padding: 5px;
+        border-bottom: 1px solid #ccc;
+        margin: 0;
+        margin-left: 5px;
+    }
+    .text{
+        color:#f39c12;
+    }
+    .marginLeft10{
+        margin-left: 10px !important;
+    }
+    .line{
+        display:inline-block; vertical-align: top; width:90%;outline:0; word-wrap: break-word;
+    }
+    </style>
+</head>
+
+<body>
+    
+    <!--main page container-->
+    <!--navbar for mobile div-->
+    <nav class="navbar navbar-fixed-top" id="navigation" style="background:white;border-radius:0; margin-bottom:0;">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <!-- <div class="navbar-brand">
+                    <b>Web Club</b>
+                </div> -->
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="index.html"> Home </a></li>
+                <li><a href="skills.html"> SIGs</a></li>
+                <li><a href="experience.html">Talks</a></li>
+                <li><a href="projects.html">Members</a></li>
+                <li><a href="contact.html"> Contact </a></li>
+            </ul>
+        </div>
+    </nav>
+    <!--navbar div end-->
+    <div class="container" style="margin-top:100px;">
+        <div class="row">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-10" style="background:rgba(255,255,255,0.7); padding:0; margin:0;">
+                <div class="panel panel-default" style="margin:15px;">
+                    <div class="panel-heading">Command Prompt</div>
+                    <div class="panel-body">
+                        <div id="cmd" style="height:400px; width:100%; overflow-y:scroll; font-family:'Courier New'; padding-top:10px;">
+                            >
+                            <div id="currCmd" contenteditable="true" class="line"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-1"></div>
+        </div>
+    </div>
+    <!--main page container end-->
+    <script>
+    var helpResponse="<p class='text'>###Commands###<br/>about ..........Get to know about us!<br/>news ...........Latest updates from web club.<br/>member -list ...Get the full list of members.<br/>member [name] ..Details about our members</p>";
+    var aboutResponse="<p class='text'>We are a group of computer science enthusiasts at National Institute of Technology karnataka, Surathkal. From core computing to web development, we have a diverse set of interests.<br/> We conduct many activities to promote dissemination of computer science knowledge among students of all branches. Some of these include:<p class='text marginLeft10'>-Talks<br/>-OPCs(Online Programming competitions)<br/>-Software Freedom Week<br/>-Leading college fest website development</p></p>";
+    var memberResponse="<p class='text'>----Flags----<br/><p class='text marginLeft10'>-list ..........Get the full list of members.</p></p><p class='text'>---Options---<br/><p class='text marginLeft10'>[name] .........Get details about a member.</p></p>";
+    $('#currCmd').keydown(function(event) {
+        triggerCmd(event,$(this));
+    });
+
+    function triggerCmd(event,elem) {
+        if (event.which == 13) {
+            event.preventDefault();
+            var command = elem.text();
+            elem.removeAttr('id').removeAttr('contenteditable');
+            $("#cmd").append('<br/>><div id="response"  class="line">'+parseCommand(command)+'</div>');
+
+            $("#cmd").append('<br/>><div id="currCmd" contenteditable="true"  class="line"></div>');
+            $('#currCmd').focus();
+            $('#currCmd').keydown(function(event) {
+                triggerCmd(event,$(this));
+            });
+        }
+    }
+    function parseCommand(command) {
+        if(command==''||command==null){
+            return 'Please enter a command! For the list of commands, type \'help\'';
+        }
+        if(command=='help'){
+            return helpResponse;
+        }
+        if(command=='about'){
+            return aboutResponse;
+        }
+        if(command=='member'){
+            return memberResponse;
+        }
+        if(command.split(' ')[0]=='member'){
+            if(command.split(' ')[1]=='-list'){
+                return '<p class="text">List yet to be updated!</p>';
+            }
+            else {
+                return getMemberDetail(command.split(' ')[1]);
+            }
+        }
+        else {
+            return '<p class="text">\''+command+'\': command not found. <br/>For the list of commands, type \'help\'</p>';
+        }
+    }
+    function getMemberDetail(name){
+        if(name==''||name==null){
+            return memberResponse;
+        }
+        else{
+            //insert member fetch code here!
+            return '<p class="text">Member not found!</p>';
+        }
+    }
+    </script>
+</body>
+
+</html>
