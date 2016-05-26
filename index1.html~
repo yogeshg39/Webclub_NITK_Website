@@ -141,8 +141,7 @@
             return memberResponse;
         }
         if(command=='nitk'){
-            nitk();
-            return '';
+            return nitk;
         }
         if(command.split(' ')[0]=='member'){
             if(command.split(' ')[1]=='-list'){
@@ -173,4 +172,3 @@
 </body>
 
 </html>
-
