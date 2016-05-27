@@ -1,3 +1,11 @@
+Array.prototype.next = function() {
+    return this[++this.current];
+};
+Array.prototype.prev = function() {
+    return this[--this.current];
+};
+Array.prototype.current = 0;
+
 function leftArrowPressed() {
     var element = document.getElementById("image1");
     element.style.left = parseInt(element.style.left) - 20 + 'px';
@@ -10,16 +18,36 @@ function rightArrowPressed() {
     element.style.transform = "rotate(7deg)";
 }
 
-function upArrowPressed() {
-    var element = document.getElementById("image1");
-    element.style.top = parseInt(element.style.top) - 20 + 'px';
+function upArrowPressed(evt) {
+    evt.preventDefault();
+    var prevCmd = cmdHistory.prev();
+    if ($("#currCmd").is(":focus") == true && prevCmd) {
+        $('#currCmd').text(prevCmd ? prevCmd : '');
+        setToLast('currCmd');
+    } else cmdHistory.next();
+
 }
 
-function downArrowPressed() {
-    var element = document.getElementById("image1");
-    element.style.top = parseInt(element.style.top) + 20 + 'px';
+function downArrowPressed(evt) {
+    evt.preventDefault();
+    var nextCmd = cmdHistory.next();
+    if ($("#currCmd").is(":focus") == true) {
+        $('#currCmd').text(nextCmd ? nextCmd : '');
+        if(nextCmd){setToLast('currCmd');}
+    } else cmdHistory.prev();
 }
-
+var setToLast=function(elName){
+    var el=document.getElementById(elName);
+    var jEl=$('#'+elName);
+    var range = document.createRange();
+    var sel = window.getSelection();
+    console.log(el.childNodes);
+    range.setStart(el.childNodes[0], jEl.text().length);
+    range.collapse(true);
+    sel.removeAllRanges();
+    sel.addRange(range);
+    el.focus();
+}
 function moveSelection(evt) {
     switch (evt.keyCode) {
         case 37:
@@ -28,14 +56,15 @@ function moveSelection(evt) {
         case 39:
             rightArrowPressed();
             break;
-            /* case 38:
-                 upArrowPressed();
-                 break;
-             case 40:
-                 downArrowPressed();
-                 break;*/
+        case 38:
+            upArrowPressed(evt);
+            break;
+        case 40:
+            downArrowPressed(evt);
+            break;
     }
 };
+var cmdHistory = [];
 
 function docReady() {
     window.addEventListener('keydown', moveSelection);
@@ -64,9 +93,9 @@ function docReady() {
                 $("#cmd").append('<br/>><div id="response"  class="line">' + response + '</div>');
                 $("#cmd").append('<br/>><div id="currCmd" contenteditable="true"  class="line"></div>');
             } else {
-                if(command=='clear')
-                $("#cmd").append('><div id="currCmd" contenteditable="true"  class="line"></div>');
-            else{$("#cmd").append('<br/>><div id="currCmd" contenteditable="true"  class="line"></div>');}
+                if (command == 'clear')
+                    $("#cmd").append('><div id="currCmd" contenteditable="true"  class="line"></div>');
+                else { $("#cmd").append('<br/>><div id="currCmd" contenteditable="true"  class="line"></div>'); }
             }
             $('#currCmd').focus();
             $('#currCmd').keydown(function(event) {
@@ -76,6 +105,9 @@ function docReady() {
     }
 
     function parseCommand(command) {
+        cmdHistory.push(command);
+        cmdHistory.next();
+        cmdHistory.current = cmdHistory.length;
         if (command == '' || command == null) {
             return 'Please enter a command! For the list of commands, type \'help\'';
         }

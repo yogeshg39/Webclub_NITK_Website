@@ -1,47 +1,333 @@
-body {
-}
+body {}
 
 .panel-default>.panel-heading {
-        background: #333;
-        color: white;
-        border: 0;
+    background: #333;
+    color: white;
+    border: 0;
+}
+
+.panel-body {
+    background: #2c3e50;
+    color: white;
+    padding: 0;
+    padding-left: 20px;
+}
+
+.panel-body ul.news {
+    padding: 0;
+    margin-bottom: 0;
+}
+
+.panel-body ul.news>li {
+    list-style: none;
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+    margin: 0;
+    margin-left: 5px;
+}
+
+.text {
+    color: #f39c12;
+}
+
+.marginLeft10 {
+    margin-left: 10px !important;
+}
+
+.line {
+    display: inline-block;
+    vertical-align: top;
+    width: 90%;
+    outline: 0;
+    word-wrap: break-word;
+}
+
+#NITK-animation {
+    position: relative;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    max-height: 400px;
+    overflow: hidden;
+    margin: 0;
+}
+
+.cloud,
+.nitk,
+svg {
+    top: 0;
+    left: 0
+}
+
+svg path#buildingCenter,
+svg path#palmLeft {
+    animation-duration: 3.5s;
+    animation-delay: 1.5s
+}
+
+#Layer_1,
+#Layer_2,
+#Layer_3,
+#Layer_4,
+#Layer_5 {
+    position: relative;
+    animation-iteration-count: infinite
+}
+
+#buildingInnerFill,
+svg path {
+    animation-iteration-count: 1
+}
+
+svg {
+    max-width: 100%;
+    width: 100%;
+    position: relative;
+    right: 0;
+    bottom: 0
+}
+
+.cloud {
+    z-index: 100;
+    position: absolute;
+    width: 10%;
+    height: 48px
+}
+
+.nitk {
+    z-index: 99;
+    position: relative;
+    width: 100%;
+    max-height: 400px;
+}
+
+svg path {
+    stroke-width: 2;
+    animation-fill-mode: forwards;
+    animation-name: draw;
+    animation-timing-function: linear
+}
+
+.cloud>svg path {
+    stroke-width: 1;
+    margin: 2px
+}
+
+svg path#floor {
+    stroke: #fff;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation-duration: 5s
+}
+
+svg path#buildingCenter {
+    stroke: #fff;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000
+}
+
+svg path#buildingInner {
+    stroke: #fff;
+    stroke-dasharray: 350;
+    stroke-dashoffset: 350;
+    animation-duration: 1.8s;
+    animation-delay: 3.2s
+}
+
+svg path#buildingInnerPillars11,
+svg path#buildingInnerPillars21,
+svg path#buildingInnerPillars22,
+svg path#buildingInnerPillars31,
+svg path#buildingInnerPillars32 {
+    stroke: #fff;
+    stroke-dasharray: 200;
+    stroke-dashoffset: 200;
+    animation-duration: 1.1386s;
+    animation-delay: 3.9714s
+}
+
+svg path#buildingInnerArch {
+    stroke: #fff;
+    stroke-dasharray: 357;
+    stroke-dashoffset: 357;
+    animation-duration: 1s;
+    animation-delay: 4s
+}
+
+svg path#buildingSideLeft {
+    stroke: #fff;
+    stroke-dasharray: 300;
+    stroke-dashoffset: 300;
+    animation-duration: 3s;
+    animation-delay: 2s
+}
+
+svg path#buildingSideRight {
+    stroke: #fff;
+    stroke-dasharray: 500;
+    stroke-dashoffset: 500;
+    animation-duration: 1.8s;
+    animation-delay: 3.2s
+}
+
+svg path#palmLeft {
+    stroke: #fff;
+    stroke-dasharray: 430;
+    stroke-dashoffset: 430
+}
+
+svg path#palmLeftBranches {
+    stroke: #fff;
+    stroke-dasharray: 76.5;
+    stroke-dashoffset: 76.5;
+    animation-duration: 1s;
+    animation-delay: 3.25s
+}
+
+svg path#palmRight {
+    stroke: #fff;
+    stroke-dasharray: 430;
+    stroke-dashoffset: 430;
+    animation-duration: 2.25s;
+    animation-delay: 2.75s
+}
+
+svg path#palmRightBranches {
+    stroke: #fff;
+    stroke-dasharray: 76.5;
+    stroke-dashoffset: 76.5;
+    animation-duration: 1s;
+    animation-delay: 3.875s
+}
+
+@keyframes draw {
+    to {
+        stroke-dashoffset: 0
     }
-    .panel-body{
-        background: #2c3e50;
-        color:white;
-        padding:0;
-        padding-left:20px;
+}
+
+@keyframes show {
+    to {
+        opacity: 1
     }
-    .panel-body ul.news {
-        padding: 0;
-        margin-bottom: 0;
+}
+
+#Layer_1,
+#Layer_2,
+#Layer_3,
+#Layer_4,
+#Layer_5 {
+    position: absolute;
+    opacity: .85;
+    left: -200px;
+    animation-timing-function: linear
+}
+
+#Layer_1,
+#Layer_3 {
+    top: 80%;
+    animation-name: move1;
+    animation-delay: 5s;
+    animation-duration: 20s
+}
+
+#Layer_3 {
+    top: 150%;
+    animation-delay: 6s;
+    animation-delay: 7s
+}
+
+@keyframes move1 {
+    0% {
+        left: -200px
     }
-    
-    .panel-body ul.news>li {
-        list-style: none;
-        padding: 5px;
-        border-bottom: 1px solid #ccc;
-        margin: 0;
-        margin-left: 5px;
+    100% {
+        left: 1000px
     }
-    
-.text{
-        color:#f39c12;
+}
+
+#Layer_2 {
+    top: 90%;
+    animation-name: move2;
+    animation-delay: 15s;
+    animation-duration: 15s
+}
+
+@keyframes move2 {
+    0% {
+        left: -200px
     }
-    .marginLeft10{
-        margin-left: 10px !important;
+    100% {
+        left: 1000px
     }
-    
-.line{
-        display:inline-block; vertical-align: top; width:90%;outline:0; word-wrap: break-word;
+}
+
+#Layer_4,
+#Layer_5 {
+    animation-name: move3;
+    animation-duration: 35s
+}
+
+#Layer_4 {
+    top: 125%;
+    animation-delay: 10.5s;
+    animation-duration: 45s
+}
+
+#Layer_5 {
+    top: 150%;
+    animation-delay: 1s
+}
+
+@keyframes move3 {
+    0% {
+        left: -200px
     }
-    #NITK-animation{
-        position: relative;
-        display: block;
-        width:100%;
-        max-width:100%;
-        height:100%;
-        max-height:400px;
-        overflow: hidden;
-        margin:0;
-    }.cloud,.nitk,svg{top:0;left:0}svg path#buildingCenter,svg path#palmLeft{animation-duration:3.5s;animation-delay:1.5s}#Layer_1,#Layer_2,#Layer_3,#Layer_4,#Layer_5{position:relative;animation-iteration-count:infinite}#buildingInnerFill,svg path{animation-iteration-count:1}svg{max-width:100%;width:100%;position:relative;right:0;bottom:0}.cloud{z-index:100;position:absolute;width:10%;height:48px}.nitk{z-index:99;position:relative;width:100%;max-height:400px;}svg path{stroke-width:2;animation-fill-mode:forwards;animation-name:draw;animation-timing-function:linear}.cloud>svg path{stroke-width:1;margin:2px}svg path#floor{stroke:#fff;stroke-dasharray:1000;stroke-dashoffset:1000;animation-duration:5s}svg path#buildingCenter{stroke:#fff;stroke-dasharray:1000;stroke-dashoffset:1000}svg path#buildingInner{stroke:#fff;stroke-dasharray:350;stroke-dashoffset:350;animation-duration:1.8s;animation-delay:3.2s}svg path#buildingInnerPillars11,svg path#buildingInnerPillars21,svg path#buildingInnerPillars22,svg path#buildingInnerPillars31,svg path#buildingInnerPillars32{stroke:#fff;stroke-dasharray:200;stroke-dashoffset:200;animation-duration:1.1386s;animation-delay:3.9714s}svg path#buildingInnerArch{stroke:#fff;stroke-dasharray:357;stroke-dashoffset:357;animation-duration:1s;animation-delay:4s}svg path#buildingSideLeft{stroke:#fff;stroke-dasharray:300;stroke-dashoffset:300;animation-duration:3s;animation-delay:2s}svg path#buildingSideRight{stroke:#fff;stroke-dasharray:500;stroke-dashoffset:500;animation-duration:1.8s;animation-delay:3.2s}svg path#palmLeft{stroke:#fff;stroke-dasharray:430;stroke-dashoffset:430}svg path#palmLeftBranches{stroke:#fff;stroke-dasharray:76.5;stroke-dashoffset:76.5;animation-duration:1s;animation-delay:3.25s}svg path#palmRight{stroke:#fff;stroke-dasharray:430;stroke-dashoffset:430;animation-duration:2.25s;animation-delay:2.75s}svg path#palmRightBranches{stroke:#fff;stroke-dasharray:76.5;stroke-dashoffset:76.5;animation-duration:1s;animation-delay:3.875s}@keyframes draw{to{stroke-dashoffset:0}}@keyframes show{to{opacity:1}}#Layer_1,#Layer_2,#Layer_3,#Layer_4,#Layer_5{position:absolute;opacity:.85;left:-200px;animation-timing-function:linear}#Layer_1,#Layer_3{top:80%;animation-name:move1;animation-delay:5s;animation-duration:20s}#Layer_3{top:150%;animation-delay:6s;animation-delay:7s}@keyframes move1{0%{left:-200px}100%{left:1000px}}#Layer_2{top:90%;animation-name:move2;animation-delay:15s;animation-duration:15s}@keyframes move2{0%{left:-200px}100%{left:1000px}}#Layer_4,#Layer_5{animation-name:move3;animation-duration:35s}#Layer_4{top:125%;animation-delay:10.5s;animation-duration:45s}#Layer_5{top:150%;animation-delay:1s}@keyframes move3{0%{left:-200px}100%{left:1000px}}@keyframes fill{0%{fill:rgba(255,255,255,0)}100%{fill:rgba(255,255,255,0.7)}}#buildingInnerFill{animation-name:fill;animation-duration:.5s;animation-delay:5s}
+    100% {
+        left: 1000px
+    }
+}
+
+@keyframes fill {
+    0% {
+        fill: rgba(255, 255, 255, 0)
+    }
+    100% {
+        fill: rgba(255, 255, 255, 0.7)
+    }
+}
+
+#buildingInnerFill {
+    animation-name: fill;
+    animation-duration: .5s;
+    animation-delay: 5s
+}
+.modal-dialog {
+    height: 100%;
+    margin-top: 0;
+}
+.modal-content {
+    top:35%;
+}
+.modal.fade .modal-dialog {
+    -webkit-transform: scale(0.1);
+    -moz-transform: scale(0.1);
+    -ms-transform: scale(0.1);
+    transform: scale(0.1);
+    top: 50%;
+    opacity: 0;
+    -webkit-transition: all 0.7s;
+    -moz-transition: all 0.7s;
+    transition: all 0.7s;
+}
+
+.modal.fade.in .modal-dialog {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+}

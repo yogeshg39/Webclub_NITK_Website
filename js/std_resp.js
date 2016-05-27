@@ -1,5 +1,5 @@
 
-    var helpResponse="<p class='text'>###Commands###<br/>about ..........Get to know about us!<br/>news ...........Latest updates from web club.<br/>member -list ...Get the full list of members.<br/>member [name] ..Details about our members</p>";
+    var helpResponse="<p class='text'>###Commands###<br/>about ..........Get to know about us!<br/>news ...........Latest updates from web club.<br/>member -list ...Get the full list of members.<br/>member [name] ..Details about our members<br/>clear ..........Clear the terminal.</p>";
     var aboutResponse="<p class='text'>We are a group of computer science enthusiasts at National Institute of Technology karnataka, Surathkal. From core computing to web development, we have a diverse set of interests.<br/> We conduct many activities to promote dissemination of computer science knowledge among students of all branches. Some of these include:<p class='text marginLeft10'>-Talks<br/>-OPCs(Online Programming competitions)<br/>-Software Freedom Week<br/>-Leading college fest website development</p></p>";
     var memberResponse="<p class='text'>----Flags----<br/><p class='text marginLeft10'>-list ..........Get the full list of members.</p></p><p class='text'>---Options---<br/><p class='text marginLeft10'>[name] .........Get details about a member.</p></p>";
     var nitk=function(){
