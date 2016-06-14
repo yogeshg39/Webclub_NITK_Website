@@ -10,13 +10,13 @@
     <meta content="Yuvraj,Singh,Bawa,NIT,NITK,Surathkal,Karnataka,Web,Engineer,Incident,Web,Club,web club,enthusiasts,open,source,Github" name="keywords" />
     <link rel="icon" href="images/logo-icon.png" type="image/png">
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/animations.min.css" rel="stylesheet">
-    <link href="css/animations-ie-fix.css" rel="stylesheet">
     <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="css/index.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Josefin+Sans:400,300,600' rel='stylesheet' type='text/css'>
     <script src="js/jQuery-2.1.4.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/wow.min.js"></script>
+    <script src="js/velocity.min.js"></script>
+    <script src="js/velocity-ui.min.js"></script>
     <script src="js/std_resp.js"></script>
     <script src="js/app.js"></script>
 </head>
@@ -38,6 +38,7 @@
         <div class="collapse navbar-collapse" id="navbar-collapse">
             <ul class="nav navbar-nav">
                 <li><a href="index.html"> Home </a></li>
+                <li><a href="about.html"> About </a></li>
                 <li><a href="skills.html"> SIGs</a></li>
                 <li><a href="experience.html">Talks</a></li>
                 <li><a href="projects.html">Members</a></li>
@@ -53,14 +54,14 @@
             <div class="col-lg-10 text-center" style="background:rgba(255,255,255,0.7); padding:0; margin:0;">
                 <h1>Try out our command prompt :)</h1>
                 <button class="btn btn-lg btn-default showPromptBtn" onclick="showCmd();">Show Prompt</button>
-                <div class="panel panel-default" id="cmdWindow" style="margin:15px;">
+                <div class="panel panel-default" id="cmdWindow" style="margin:15px; font-family:'Courier New' !important;">
                     <div class="panel-heading">
                         <a href="#" onclick="hideCmd();">
                             <div class="cmdClose">x</div>
                         </a>
                         Command Prompt</div>
                     <div class="panel-body">
-                        <div id="cmd" style="height:400px; width:100%; overflow-y:scroll; font-family:'Courier New'; padding-top:10px;">
+                        <div id="cmd" style="height:400px; width:100%; overflow-y:scroll; padding-top:10px;">
                             >
                             <div id="currCmd" contenteditable="true" class="line"></div>
                         </div>
@@ -101,21 +102,18 @@
     </div>
     <script>
     function hideCmd() {
-        $('#cmdWindow').addClass('animated').addClass('bounceOut');
+        $('#cmdWindow').velocity('transition.bounceOut')
         $('.showPromptBtn').delay(400).show().addClass('animated').addClass('bounceIn');
     }
 
     function showCmd() {
-        $('#cmdWindow').removeClass('bounceOut').removeClass('animated').addClass('animated').addClass('bounceIn');
+        $('#cmdWindow').velocity('transition.bounceIn')
         $('.showPromptBtn').hide();
         $('#currCmd').focus();
         $('#currCmd').keydown(function(event) {
             triggerCmd(event, $(this));
         });
     }
-    $(function() {
-        new WOW().init();
-    });
     $("#myModal").on("shown.bs.modal", function() {
         $('#myModal').focus();
     });

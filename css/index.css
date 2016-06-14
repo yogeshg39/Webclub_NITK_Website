@@ -1,4 +1,12 @@
-body {}
+body {
+    font-family: 'Josefin Sans', sans-serif;
+}
+h1.about{
+    font-size: 5rem;
+}
+nav li a {
+    font-size: 18px;
+}
 .panel-default {
     border:none;
 }
@@ -116,6 +124,9 @@ svg path#path2548{stroke:white;stroke-dasharray:2500;stroke-dashoffset:2500;anim
     margin: 5px;
     transition: all 0.4s;
     margin-bottom: 15px;
+}
+.fa-lg{
+    line-height: 1em !important;
 }
 .social:hover {
     filter: brightness(150%);

@@ -14,9 +14,11 @@
     <link href="css/animations-ie-fix.css" rel="stylesheet">
     <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="css/index.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Josefin+Sans:400,300,600' rel='stylesheet' type='text/css'>
     <script src="js/jQuery-2.1.4.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/wow.min.js"></script>
+    <script src="js/velocity.min.js"></script>
+    <script src="js/velocity-ui.min.js"></script>
 </head>
 
 <body onload="docReady()" onkeydown="" onkeyup="">
@@ -253,9 +255,7 @@
         </div>
     </div>
     <script>
-    $(function() {
-        new WOW().init();
-    });
+    
     $("#myModal").on("shown.bs.modal", function() {
         $('#myModal').focus();
     });
