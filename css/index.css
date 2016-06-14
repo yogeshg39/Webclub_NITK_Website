@@ -1,9 +1,14 @@
 body {}
-
+.panel-default {
+    border:none;
+}
 .panel-default>.panel-heading {
     background: #333;
     color: white;
     border: 0;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    text-align: left !important;
 }
 
 .panel-body {
@@ -11,6 +16,7 @@ body {}
     color: white;
     padding: 0;
     padding-left: 20px;
+    text-align: left !important;
 }
 
 .panel-body ul.news {
@@ -79,4 +85,84 @@ body {}
     -ms-transform: scale(1);
     transform: scale(1);
     opacity: 1;
+}
+.cmdClose {
+    width:15px;
+    height:15px;
+    border-radius: 7.5px;
+    background: #F9690E;
+    line-height: 15px;
+    font-size: 12px;
+    text-align: center;
+    display: inline-block;
+    color:#333 !important;/*
+    box-shadow: inset -5px -5px 5px rgba(0,0,0,0.3);*/
+}
+svg path#path2548{stroke:white;stroke-dasharray:2500;stroke-dashoffset:2500;animation-duration:2.5s;animation-delay:2.5s;stroke-width:2;animation-fill-mode:forwards;animation-name:drawnfill;animation-timing-function:linear}
+@keyframes drawnfill{to{stroke-dashoffset:0; fill:#dddddd;}}
+.showPromptBtn {
+    display:none;
+}
+.social {
+    display: inline-block;
+    width: 26px;
+    height: 26px;
+    line-height: 26px;
+    border-radius: 13px;
+    font-size: 13px !important;
+    background: #444; 
+    color: white !important;
+    text-align: center;
+    margin: 5px;
+    transition: all 0.4s;
+    margin-bottom: 15px;
+}
+.social:hover {
+    filter: brightness(150%);
+    -moz-filter: brightness(150%);
+    -webkit-filter: brightness(150%);
+}
+.img-team {
+    padding:5px;
+}
+.team-img-wrapper {
+    display: block;
+    margin-left:auto;
+    margin-right:auto;
+    width:160px;
+    height:160px;
+    border-radius: 80px;
+    background: white;
+    box-shadow: 0 0 10px #333;
+    margin-bottom:30px;
+}
+/*.team-img-wrapper img {
+    position: absolute;
+    top:0;
+    left:0;
+}*/
+.team-img-hover {
+    width:160px;
+    height:160px;
+    border-radius: 80px;
+    border:white solid 5px;
+    opacity:0;
+    position:absolute;
+    top:0;
+    background: rgba(255,255,255,0.5);
+    transition: all 0.4s;
+    cursor:pointer;
+    line-height:160px;
+}
+.team-img-hover:hover {
+    opacity:1;
+}
+.fb {
+    background: #3b5998;
+}
+.git {
+    background: #111;
+}
+.git:hover {
+    background: #333;
 }

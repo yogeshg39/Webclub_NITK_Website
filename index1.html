@@ -12,7 +12,6 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/animations.min.css" rel="stylesheet">
     <link href="css/animations-ie-fix.css" rel="stylesheet">
-    <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="css/index.css" rel="stylesheet">
     <script src="js/jQuery-2.1.4.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -50,15 +49,11 @@
     <div class="container" style="margin-top:100px;">
         <div class="row">
             <div class="col-lg-1"></div>
-            <div class="col-lg-10 text-center" style="background:rgba(255,255,255,0.7); padding:0; margin:0;">
-                <h1>Try out our command prompt :)</h1>
-                <button class="btn btn-lg btn-default showPromptBtn" onclick="showCmd();">Show Prompt</button>
+            <div class="col-lg-10" style="background:rgba(255,255,255,0.7); padding:0; margin:0;">
                 <div class="panel panel-default" id="cmdWindow" style="margin:15px;">
                     <div class="panel-heading">
-                        <a href="#" onclick="hideCmd();">
-                            <div class="cmdClose">x</div>
-                        </a>
-                        Command Prompt</div>
+                    <a href="#" onclick="hideCmd();"><div class="cmdClose">x</div></a>
+                    Command Prompt</div>
                     <div class="panel-body">
                         <div id="cmd" style="height:400px; width:100%; overflow-y:scroll; font-family:'Courier New'; padding-top:10px;">
                             >
@@ -69,17 +64,6 @@
             </div>
             <div class="col-lg-1"></div>
         </div>
-    </div>
-    <div class="container" style="padding:0; color:#333;">
-        <div class="row" style="margin:0; padding:0;">
-            <div class="col-lg-12">
-            <hr/>
-                <a href="#" class="social"><i class="fa fa-lg fa-facebook"></i></a>
-                <a href="#" class="social"><i class="fa fa-lg fa-github"></i></a> 
-                &copy; 2016 Web Club, NITK Surathkal
-            </div>
-        </div>
-    </div>
     </div>
     <!--main page container end-->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -100,18 +84,9 @@
         </div>
     </div>
     <script>
-    function hideCmd() {
+    function hideCmd(){
         $('#cmdWindow').addClass('animated').addClass('bounceOut');
-        $('.showPromptBtn').delay(400).show().addClass('animated').addClass('bounceIn');
-    }
-
-    function showCmd() {
-        $('#cmdWindow').removeClass('bounceOut').removeClass('animated').addClass('animated').addClass('bounceIn');
-        $('.showPromptBtn').hide();
-        $('#currCmd').focus();
-        $('#currCmd').keydown(function(event) {
-            triggerCmd(event, $(this));
-        });
+        document.getElementById('cmd').innerHTML = '';
     }
     $(function() {
         new WOW().init();
